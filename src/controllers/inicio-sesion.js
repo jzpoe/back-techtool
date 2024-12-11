@@ -4,6 +4,8 @@ const User = require('../model/model-sesion');
 // Controlador de sesión (por ahora vacío)
 const sesion = async (req, res) => {
     const { username, password } = req.body;
+    console.log('Datos recibidos:', { username, password });
+
 
     try {
         // Buscar al usuario en la base de datos
@@ -19,8 +21,8 @@ const sesion = async (req, res) => {
         }
 
         // Guardar información del usuario en la sesión
-        req.session.userId = user._id;
-        req.session.username = user.username;
+        //req.session.userId = user._id;
+        //req.session.username = user.username;
 
         res.json({ message: 'Inicio de sesión exitoso', username: user.username });
     } catch (error) {
